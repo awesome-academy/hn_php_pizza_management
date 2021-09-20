@@ -1,0 +1,21 @@
+{
+  "name": "hn_php_pizza_management",
+  "description": "",
+  "main": "",
+  "authors": [
+    "cuong2209 <59088513+cuongnc-2209@users.noreply.github.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/cuongnc-2209/hn_php_pizza_management",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "html-metronic": "https://github.com/cuongnc-2209/html-metronic.git",
+    "client-pizza": "https://github.com/cuongnc-2209/client-pizza.git"
+  }
+}
