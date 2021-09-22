@@ -20,7 +20,15 @@ Route::group(['prefix' => '/', 'as' => 'client.', 'namespace' => 'Client'], func
 
 // Auth::routes();
 
-Route::group(['prefix' => '/admin', 'namespace' => 'Admin', 'as' => 'admin'], function () {
-    //Dashboard
-    Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+Route::group(['prefix' => '/admin', 'namespace' => 'Admin', 'as' => 'admin.'], function () {
+    //View login
+    Route::get('/login', 'AuthController@login')->name('view_login');
+    //Post Login
+    Route::post('/login', 'AuthController@postLogin')->name('post_login');
+    //Logout
+    Route::get('/logout', 'AuthController@logout')->name('logout');
+    Route::group(['middleware' => 'admin'], function () {
+        //Dashboard
+        Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+    });
 });
