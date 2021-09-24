@@ -6,4 +6,5 @@ return [
     'min' => [
         'numeric' => ':attribute không được nhỏ hơn :min ký tự',
     ],
+    'exists' => ':attribute không tồn tại.Vui lòng chọn lại !',
 ];
