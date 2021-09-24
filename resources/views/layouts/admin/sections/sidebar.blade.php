@@ -1,15 +1,11 @@
 <ul class="menu-nav">
     <li class="menu-item menu-item-active" aria-haspopup="true">
         <a href="{{ route('admin.dashboard') }}" class="menu-link">
-            <span class="svg-icon menu-icon">
-            </span>
             <span class="menu-text">{{ __('admin.sidebar.dashboard') }}</span>
         </a>
     </li>
     <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
         <a href="javascript:;" class="menu-link menu-toggle">
-            <span class="svg-icon menu-icon">
-            </span>
             <span class="menu-text">{{ __('admin.sidebar.categories.category') }}</span>
             <i class="menu-arrow"></i>
         </a>

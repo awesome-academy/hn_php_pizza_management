@@ -29,14 +29,14 @@
                 <ul class="navi navi-hover py-4">
                     <!--begin::Item-->
                     <li class="navi-item">
-                        <a href="#" class="navi-link">
+                        <a href="{{ route('changeLanguage', ['language' => config('common.language.en')]) }}" class="navi-link">
                             <span class="navi-text">{{ __('admin.header.language.en') }}</span>
                         </a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="navi-item">
-                        <a href="#" class="navi-link">
+                        <a href="{{ route('changeLanguage', ['language' => config('common.language.vi')]) }}" class="navi-link">
                             <span class="navi-text">{{ __('admin.header.language.vi') }}</span>
                         </a>
                     </li>
@@ -50,7 +50,7 @@
         <!--begin::User-->
         <div class="topbar-item">
             <div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
-                <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
+                <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">{{ __('admin.header.user.hi') }},</span>
                 <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{ Auth::user()->fullname }}</span>
                 <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
                     <span class="symbol-label font-size-h5 font-weight-bold">{{ substr(Auth::user()->fullname, 0, 1) }}</span>
