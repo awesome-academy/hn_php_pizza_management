@@ -48,6 +48,21 @@ Route::group(['middleware' => 'locale'], function () {
                 //Delete
                 Route::post('/delete/{id}', 'CategoryController@delete')->name('delete');
             });
+            //Product
+            Route::group(['prefix' => '/product', 'as' => 'product.'], function () {
+                //Index
+                Route::get('/', 'ProductController@index')->name('index');
+                //Create
+                Route::get('/create', 'ProductController@create')->name('create');
+                //Store
+                Route::post('/store', 'ProductController@store')->name('store');
+                //Edit
+                Route::get('/edit/{id}', 'ProductController@edit')->name('edit');
+                //Update
+                Route::post('/update/{id}', 'ProductController@update')->name('update');
+                //Delete
+                Route::post('/delete/{id}', 'ProductController@delete')->name('delete');
+            });
         });
     });
 });

@@ -7,4 +7,6 @@ return [
         'numeric' => ':attribute không được nhỏ hơn :min ký tự',
     ],
     'exists' => ':attribute không tồn tại.Vui lòng chọn lại !',
+    'regex' => ':attribute không được là số âm !',
+    'mimes' => ':attribute không đúng định dạng. Định dạng ảnh phải là: :values',
 ];
