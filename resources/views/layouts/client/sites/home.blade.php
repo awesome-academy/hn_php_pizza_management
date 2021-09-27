@@ -113,13 +113,13 @@
                 <div class="section-tabs">
                     <ul class="nav nav-tabs pizzaro-nav-tabs" >
                         <li class="nav-item">
-                            <a href="#h1-tab-products-1" data-toggle="tab">Wraps</a>
+                            <a href="#h1-tab-products-1" data-toggle="tab">{{ $meatPizza->name }}</a>
                         </li>
                         <li class="nav-item active">
-                            <a href="#h1-tab-products-2" class="active" data-toggle="tab">Pizza Sets</a>
+                            <a href="#h1-tab-products-2" class="active" data-toggle="tab">{{ $mixedPizza->name }}</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#h1-tab-products-3" data-toggle="tab">Burgers</a>
+                            <a href="#h1-tab-products-3" data-toggle="tab">{{ $vegetarianPizza->name }}</a>
                         </li>
                     </ul>
                     <div class="tab-content">
@@ -128,114 +128,48 @@
                                 <div class="woocommerce columns-3">
                                     <div class="columns-3">
                                         <ul class="products">
-                                            <li class="product first">
-                                                <div class="product-outer">
-                                                    <div class="product-inner">
-                                                        <div class="product-image-wrapper">
-                                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                            <img src="{{ asset('bower_components/client-pizza/assets/images/products/p1.jpg') }}" class="img-responsive" alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="product-content-wrapper">
-                                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                                <h3>Pepperoni Pizza</h3>
-                                                                <div itemprop="description">
-                                                                    <p style="max-height: none;">Extra-virgin olive oil, garlic, mozzarella, mushrooms and olives.</p>
-                                                                </div>
-                                                                <div class="yith_wapo_groups_container">
-                                                                    <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
-                                                                        <h3><span>Pick Size</span></h3>
-                                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">22 cm</span></span><span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>19</span></span>
-                                                                        </div>
-                                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">29 cm</span></span>
-                                                                            <span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25</span></span>
+                                            <!-- /.products -->
+                                            @foreach ($meatPizza->products->take(3) as $meat)
+                                                <li class="product ">
+                                                    <div class="product-outer">
+                                                        <div class="product-inner">
+                                                            <div class="product-image-wrapper">
+                                                                <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                                                <img src="{{ asset($meat->thumbnail) }}" class="img-responsive" alt="">
+                                                                </a>
+                                                            </div>
+                                                            <div class="product-content-wrapper">
+                                                                <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                                                    <h3>{{ $meat->name }}</h3>
+                                                                    <div itemprop="description">
+                                                                        <p style="max-height: none;">{{ $meat->description }}</p>
+                                                                    </div>
+                                                                    <div class="yith_wapo_groups_container">
+                                                                        <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
+                                                                            <h3><span>Size</span></h3>
+                                                                            <div class="ywapo_input_container ywapo_input_container_radio">
+                                                                                <span class="ywapo_label_tag_position_after">
+                                                                                @foreach (config('common.size') as $key => $size)
+                                                                                    @if ($key == $meat->size)
+                                                                                        <span class="ywapo_option_label ywapo_label_position_after">{{ $size }}</span></span>
+                                                                                    @endif
+                                                                                @endforeach
+                                                                                <span class="ywapo_label_price">
+                                                                                <span class="woocommerce-Price-amount amount">
+                                                                                <span class="woocommerce-Price-currencySymbol">{{ $meat->price }}</span></span></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
+                                                                </a>
+                                                                <div class="hover-area">
+                                                                    <a rel="nofollow" href="{{ route('client.addToCart', ['id' => $meat->id]) }}" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">{{ __('client.add_to_cart') }}</a>
                                                                 </div>
-                                                            </a>
-                                                            <div class="hover-area">
-                                                                <a rel="nofollow" href="single-product-v1.html" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <!-- /.product-outer -->
-                                            </li>
-                                            <!-- /.products -->
-                                            <li class="product ">
-                                                <div class="product-outer">
-                                                    <div class="product-inner">
-                                                        <div class="product-image-wrapper">
-                                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                            <img src="{{ asset('bower_components/client-pizza/assets/images/products/p2.jpg') }}" class="img-responsive" alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="product-content-wrapper">
-                                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                                <h3>Trio Cheese</h3>
-                                                                <div itemprop="description">
-                                                                    <p style="max-height: none;">Extra-virgin olive oil, garlic, mozzarella, mushrooms and olives.</p>
-                                                                </div>
-                                                                <div class="yith_wapo_groups_container">
-                                                                    <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
-                                                                        <h3><span>Pick Size</span></h3>
-                                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">22 cm</span></span><span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>19</span></span>
-                                                                        </div>
-                                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">29 cm</span></span>
-                                                                            <span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25</span></span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <div class="hover-area">
-                                                                <a rel="nofollow" href="single-product-v1.html" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- /.product-outer -->
-                                            </li>
-                                            <!-- /.products -->
-                                            <li class="product last">
-                                                <div class="product-outer">
-                                                    <div class="product-inner">
-                                                        <div class="product-image-wrapper">
-                                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                            <img src="{{ asset('bower_components/client-pizza/assets/images/products/p3.jpg') }}" class="img-responsive" alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="product-content-wrapper">
-                                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                                <h3>Apricot Chicken</h3>
-                                                                <div itemprop="description">
-                                                                    <p style="max-height: none;">Extra-virgin olive oil, garlic, mozzarella, mushrooms and olives.</p>
-                                                                </div>
-                                                                <div class="yith_wapo_groups_container">
-                                                                    <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
-                                                                        <h3><span>Pick Size</span></h3>
-                                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">22 cm</span></span><span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>19</span></span>
-                                                                        </div>
-                                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">29 cm</span></span>
-                                                                            <span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25</span></span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <div class="hover-area">
-                                                                <a rel="nofollow" href="single-product-v1.html" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- /.product-outer -->
-                                            </li>
-                                            <!-- /.products -->
+                                                    <!-- /.product-outer -->
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
@@ -246,114 +180,47 @@
                                 <div class="woocommerce columns-3">
                                     <div class="columns-3">
                                         <ul class="products">
-                                            <li class="product first">
-                                                <div class="product-outer">
-                                                    <div class="product-inner">
-                                                        <div class="product-image-wrapper">
-                                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                            <img src="{{ asset('bower_components/client-pizza/assets/images/products/p4.jpg') }}" class="img-responsive" alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="product-content-wrapper">
-                                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                                <h3>Italiano Original</h3>
-                                                                <div itemprop="description">
-                                                                    <p style="max-height: none;">Extra-virgin olive oil, garlic, mozzarella, mushrooms and olives.</p>
-                                                                </div>
-                                                                <div class="yith_wapo_groups_container">
-                                                                    <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
-                                                                        <h3><span>Pick Size</span></h3>
-                                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">22 cm</span></span><span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>19</span></span>
-                                                                        </div>
-                                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">29 cm</span></span>
-                                                                            <span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25</span></span>
+                                            @foreach ($mixedPizza->products->take(3) as $mixed)
+                                                <li class="product ">
+                                                    <div class="product-outer">
+                                                        <div class="product-inner">
+                                                            <div class="product-image-wrapper">
+                                                                <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                                                <img src="{{ asset($mixed->thumbnail) }}" class="img-responsive" alt="">
+                                                                </a>
+                                                            </div>
+                                                            <div class="product-content-wrapper">
+                                                                <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                                                    <h3>{{ $mixed->name }}</h3>
+                                                                    <div itemprop="description">
+                                                                        <p style="max-height: none;">{{ $mixed->description }}</p>
+                                                                    </div>
+                                                                    <div class="yith_wapo_groups_container">
+                                                                        <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
+                                                                            <h3><span>Size</span></h3>
+                                                                            <div class="ywapo_input_container ywapo_input_container_radio">
+                                                                                <span class="ywapo_label_tag_position_after">
+                                                                                @foreach (config('common.size') as $key => $size)
+                                                                                    @if ($key == $mixed->size)
+                                                                                        <span class="ywapo_option_label ywapo_label_position_after">{{ $size }}</span></span>
+                                                                                    @endif
+                                                                                @endforeach
+                                                                                <span class="ywapo_label_price">
+                                                                                <span class="woocommerce-Price-amount amount">
+                                                                                <span class="woocommerce-Price-currencySymbol">{{ $mixed->price }}</span></span></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
+                                                                </a>
+                                                                <div class="hover-area">
+                                                                    <a rel="nofollow" href="single-product-v1.html" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">{{ __('client.add_to_cart') }}</a>
                                                                 </div>
-                                                            </a>
-                                                            <div class="hover-area">
-                                                                <a rel="nofollow" href="single-product-v1.html" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <!-- /.product-outer -->
-                                            </li>
-                                            <!-- /.products -->
-                                            <li class="product ">
-                                                <div class="product-outer">
-                                                    <div class="product-inner">
-                                                        <div class="product-image-wrapper">
-                                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                            <img src="{{ asset('bower_components/client-pizza/assets/images/products/p5.jpg') }}" class="img-responsive" alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="product-content-wrapper">
-                                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                                <h3>Chicken Hawaii</h3>
-                                                                <div itemprop="description">
-                                                                    <p style="max-height: none;">Extra-virgin olive oil, garlic, mozzarella, mushrooms and olives.</p>
-                                                                </div>
-                                                                <div class="yith_wapo_groups_container">
-                                                                    <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
-                                                                        <h3><span>Pick Size</span></h3>
-                                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">22 cm</span></span><span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>19</span></span>
-                                                                        </div>
-                                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">29 cm</span></span>
-                                                                            <span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25</span></span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <div class="hover-area">
-                                                                <a rel="nofollow" href="single-product-v1.html" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- /.product-outer -->
-                                            </li>
-                                            <!-- /.products -->
-                                            <li class="product last">
-                                                <div class="product-outer">
-                                                    <div class="product-inner">
-                                                        <div class="product-image-wrapper">
-                                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                            <img src="{{ asset('bower_components/client-pizza/assets/images/products/p6.jpg') }}" class="img-responsive" alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="product-content-wrapper">
-                                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                                <h3>Summer Pizza</h3>
-                                                                <div itemprop="description">
-                                                                    <p style="max-height: none;">Extra-virgin olive oil, garlic, mozzarella, mushrooms and olives.</p>
-                                                                </div>
-                                                                <div class="yith_wapo_groups_container">
-                                                                    <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
-                                                                        <h3><span>Pick Size</span></h3>
-                                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">22 cm</span></span><span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>19</span></span>
-                                                                        </div>
-                                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">29 cm</span></span>
-                                                                            <span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25</span></span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <div class="hover-area">
-                                                                <a rel="nofollow" href="single-product-v1.html" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- /.product-outer -->
-                                            </li>
-                                            <!-- /.products -->
+                                                    <!-- /.product-outer -->
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
@@ -364,114 +231,47 @@
                                 <div class="woocommerce columns-3">
                                     <div class="columns-3">
                                         <ul class="products">
-                                            <li class="product first">
-                                                <div class="product-outer">
-                                                    <div class="product-inner">
-                                                        <div class="product-image-wrapper">
-                                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                            <img src="{{ asset('bower_components/client-pizza/assets/images/products/p7.jpg') }}" class="img-responsive" alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="product-content-wrapper">
-                                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                                <h3>Pepperoni Calzone</h3>
-                                                                <div itemprop="description">
-                                                                    <p style="max-height: none;">Extra-virgin olive oil, garlic, mozzarella, mushrooms and olives.</p>
-                                                                </div>
-                                                                <div class="yith_wapo_groups_container">
-                                                                    <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
-                                                                        <h3><span>Pick Size</span></h3>
-                                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">22 cm</span></span><span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>19</span></span>
-                                                                        </div>
-                                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">29 cm</span></span>
-                                                                            <span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25</span></span>
+                                            @foreach ($vegetarianPizza->products->take(3) as $vegetarian)
+                                                <li class="product ">
+                                                    <div class="product-outer">
+                                                        <div class="product-inner">
+                                                            <div class="product-image-wrapper">
+                                                                <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                                                <img src="{{ asset($vegetarian->thumbnail) }}" class="img-responsive" alt="">
+                                                                </a>
+                                                            </div>
+                                                            <div class="product-content-wrapper">
+                                                                <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                                                    <h3>{{ $vegetarian->name }}</h3>
+                                                                    <div itemprop="description">
+                                                                        <p style="max-height: none;">{{ $vegetarian->description }}</p>
+                                                                    </div>
+                                                                    <div class="yith_wapo_groups_container">
+                                                                        <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
+                                                                            <h3><span>Size</span></h3>
+                                                                            <div class="ywapo_input_container ywapo_input_container_radio">
+                                                                                <span class="ywapo_label_tag_position_after">
+                                                                                @foreach (config('common.size') as $key => $size)
+                                                                                    @if ($key == $vegetarian->size)
+                                                                                        <span class="ywapo_option_label ywapo_label_position_after">{{ $size }}</span></span>
+                                                                                    @endif
+                                                                                @endforeach
+                                                                                <span class="ywapo_label_price">
+                                                                                <span class="woocommerce-Price-amount amount">
+                                                                                <span class="woocommerce-Price-currencySymbol">{{ $vegetarian->price }}</span></span></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
+                                                                </a>
+                                                                <div class="hover-area">
+                                                                    <a rel="nofollow" href="single-product-v1.html" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">{{ __('client.add_to_cart') }}</a>
                                                                 </div>
-                                                            </a>
-                                                            <div class="hover-area">
-                                                                <a rel="nofollow" href="single-product-v1.html" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <!-- /.product-outer -->
-                                            </li>
-                                            <!-- /.products -->
-                                            <li class="product ">
-                                                <div class="product-outer">
-                                                    <div class="product-inner">
-                                                        <div class="product-image-wrapper">
-                                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                            <img src="{{ asset('bower_components/client-pizza/assets/images/products/p8.jpg') }}" class="img-responsive" alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="product-content-wrapper">
-                                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                                <h3>Pepperoni Pizza</h3>
-                                                                <div itemprop="description">
-                                                                    <p style="max-height: none;">Extra-virgin olive oil, garlic, mozzarella, mushrooms and olives.</p>
-                                                                </div>
-                                                                <div class="yith_wapo_groups_container">
-                                                                    <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
-                                                                        <h3><span>Pick Size</span></h3>
-                                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">22 cm</span></span><span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>19</span></span>
-                                                                        </div>
-                                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">29 cm</span></span>
-                                                                            <span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25</span></span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <div class="hover-area">
-                                                                <a rel="nofollow" href="single-product-v1.html" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- /.product-outer -->
-                                            </li>
-                                            <!-- /.products -->
-                                            <li class="product last">
-                                                <div class="product-outer">
-                                                    <div class="product-inner">
-                                                        <div class="product-image-wrapper">
-                                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                            <img src="{{ asset('bower_components/client-pizza/assets/images/products/p9.jpg') }}" class="img-responsive" alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="product-content-wrapper">
-                                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                                <h3>Trio Cheese</h3>
-                                                                <div itemprop="description">
-                                                                    <p style="max-height: none;">Extra-virgin olive oil, garlic, mozzarella, mushrooms and olives.</p>
-                                                                </div>
-                                                                <div class="yith_wapo_groups_container">
-                                                                    <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
-                                                                        <h3><span>Pick Size</span></h3>
-                                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">22 cm</span></span><span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>19</span></span>
-                                                                        </div>
-                                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">29 cm</span></span>
-                                                                            <span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25</span></span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <div class="hover-area">
-                                                                <a rel="nofollow" href="single-product-v1.html" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- /.product-outer -->
-                                            </li>
-                                            <!-- /.products -->
+                                                    <!-- /.product-outer -->
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
@@ -510,153 +310,56 @@
                     </div>
                 </div>
                 <div class="section-products">
-                    <h2 class="section-title">Goes Great With</h2>
+                    <h2 class="section-title">{{ __('client.latest_product') }}</h2>
                     <div class="columns-4">
                         <ul class="products">
-                            <li class="product first">
-                                <div class="product-outer">
-                                    <div class="product-inner">
-                                        <div class="product-image-wrapper">
-                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                            <img src="{{ asset('bower_components/client-pizza/assets/images/products/p9.jpg') }}" class="img-responsive" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-content-wrapper">
-                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                <h3>Trio Cheese</h3>
-                                                <div itemprop="description">
-                                                    <p style="max-height: none;">Extra-virgin olive oil, garlic, mozzarella, mushrooms and olives.</p>
-                                                </div>
-                                                <div class="yith_wapo_groups_container">
-                                                    <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
-                                                        <h3><span>Pick Size</span></h3>
-                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">22 cm</span></span><span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>19</span></span>
-                                                        </div>
-                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">29 cm</span></span>
-                                                            <span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25</span></span>
+                            @foreach ($latestProducts as $latestProduct)
+                                <li class="product ">
+                                    <div class="product-outer">
+                                        <div class="product-inner">
+                                            <div class="product-image-wrapper">
+                                                <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                                <img src="{{ asset($latestProduct->thumbnail) }}" class="img-responsive" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="product-content-wrapper">
+                                                <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                                    <h3>{{ $latestProduct->name }}</h3>
+                                                    <div itemprop="description">
+                                                        <p style="max-height: none;">{{ $latestProduct->description }}</p>
+                                                    </div>
+                                                    <div class="yith_wapo_groups_container">
+                                                        <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
+                                                            <h3><span>Size</span></h3>
+                                                            <div class="ywapo_input_container ywapo_input_container_radio">
+                                                                <span class="ywapo_label_tag_position_after">
+                                                                    <span class="ywapo_option_label ywapo_label_position_after">
+                                                                        @foreach (config('common.size') as $key => $size)
+                                                                            @if ($key == $latestProduct->size)
+                                                                                <span class="ywapo_option_label ywapo_label_position_after">{{ $size }}</span></span>
+                                                                            @endif
+                                                                        @endforeach
+                                                                    </span>
+                                                                </span>
+                                                                <span class="ywapo_label_price">
+                                                                    <span class="woocommerce-Price-amount amount">
+                                                                        <span class="woocommerce-Price-currencySymbol"></span>{{ $latestProduct->price }}
+                                                                    </span>
+                                                                </span>
+                                                            </div>
                                                         </div>
                                                     </div>
+                                                </a>
+                                                <div class="hover-area">
+                                                    <a rel="nofollow" href="{{ route('client.addToCart', ['id' => $latestProduct->id]) }}" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">{{ __('client.add_to_cart') }}</a>
                                                 </div>
-                                            </a>
-                                            <div class="hover-area">
-                                                <a rel="nofollow" href="single-product-v1.html" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- /.product-outer -->
-                            </li>
-                            <!-- /.products -->
-                            <li class="product ">
-                                <div class="product-outer">
-                                    <div class="product-inner">
-                                        <div class="product-image-wrapper">
-                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                            <img src="{{ asset('bower_components/client-pizza/assets/images/products/p10.jpg') }}" class="img-responsive" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-content-wrapper">
-                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                <h3>Trio Cheese</h3>
-                                                <div itemprop="description">
-                                                    <p style="max-height: none;">Extra-virgin olive oil, garlic, mozzarella, mushrooms and olives.</p>
-                                                </div>
-                                                <div class="yith_wapo_groups_container">
-                                                    <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
-                                                        <h3><span>Pick Size</span></h3>
-                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">22 cm</span></span><span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>19</span></span>
-                                                        </div>
-                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">29 cm</span></span>
-                                                            <span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25</span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <div class="hover-area">
-                                                <a rel="nofollow" href="single-product-v1.html" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.product-outer -->
-                            </li>
-                            <!-- /.products -->
-                            <li class="product ">
-                                <div class="product-outer">
-                                    <div class="product-inner">
-                                        <div class="product-image-wrapper">
-                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                            <img src="{{ asset('bower_components/client-pizza/assets/images/products/p2.jpg') }}" class="img-responsive" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-content-wrapper">
-                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                <h3>Trio Cheese</h3>
-                                                <div itemprop="description">
-                                                    <p style="max-height: none;">Extra-virgin olive oil, garlic, mozzarella, mushrooms and olives.</p>
-                                                </div>
-                                                <div class="yith_wapo_groups_container">
-                                                    <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
-                                                        <h3><span>Pick Size</span></h3>
-                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">22 cm</span></span><span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>19</span></span>
-                                                        </div>
-                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">29 cm</span></span>
-                                                            <span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25</span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <div class="hover-area">
-                                                <a rel="nofollow" href="single-product-v1.html" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.product-outer -->
-                            </li>
-                            <!-- /.products -->
-                            <li class="product last">
-                                <div class="product-outer">
-                                    <div class="product-inner">
-                                        <div class="product-image-wrapper">
-                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                            <img src="{{ asset('bower_components/client-pizza/assets/images/products/p1.jpg') }}" class="img-responsive" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-content-wrapper">
-                                            <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
-                                                <h3>Trio Cheese</h3>
-                                                <div itemprop="description">
-                                                    <p style="max-height: none;">Extra-virgin olive oil, garlic, mozzarella, mushrooms and olives.</p>
-                                                </div>
-                                                <div class="yith_wapo_groups_container">
-                                                    <div class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="1" data-condition="">
-                                                        <h3><span>Pick Size</span></h3>
-                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">22 cm</span></span><span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>19</span></span>
-                                                        </div>
-                                                        <div class="ywapo_input_container ywapo_input_container_radio">
-                                                            <span class="ywapo_label_tag_position_after"><span class="ywapo_option_label ywapo_label_position_after">29 cm</span></span>
-                                                            <span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25</span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <div class="hover-area">
-                                                <a rel="nofollow" href="single-product-v1.html" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.product-outer -->
-                            </li>
-                            <!-- /.products -->
+                                    <!-- /.product-outer -->
+                                </li>
+                                <!-- /.products -->
+                            @endforeach
                         </ul>
                     </div>
                 </div>
