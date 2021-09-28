@@ -50,7 +50,7 @@
                     </span>
                 </li>
                 <li class="menu-item" aria-haspopup="true">
-                    <a href="#" class="menu-link">
+                    <a href="{{ route('admin.product.create') }}" class="menu-link">
                         <i class="menu-bullet menu-bullet-line">
                             <span></span>
                         </i>
@@ -67,5 +67,10 @@
                 </li>
             </ul>
         </div>
+    </li>
+    <li class="menu-item menu-item-active" aria-haspopup="true">
+        <a href="{{ route('admin.order.index') }}" class="menu-link">
+            <span class="menu-text">{{ __('admin.sidebar.orders.order') }}</span>
+        </a>
     </li>
 </ul>

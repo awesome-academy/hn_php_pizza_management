@@ -13,6 +13,9 @@ return [
             'product_list' => 'Danh sách sản phẩm',
             'product_add' => 'Thêm sản phẩm',
         ],
+        'orders' => [
+            'order' => 'Quản lý đơn hàng',
+        ],
     ],
     'header' => [
         'language' => [
@@ -28,6 +31,9 @@ return [
         'add' => 'Thêm :name',
         'edit' => 'Sửa',
         'delete' => 'Xóa',
+        'detail' => 'Chi tiết',
+        'accept' => 'Xác nhận',
+        'reject' => 'Từ chối',
     ],
     'label' => [
         'category' => [
@@ -37,6 +43,9 @@ return [
         'product' => [
             'create' => 'Thêm :name',
             'edit' => 'Sửa :name',
+        ],
+        'order' => [
+            'detail' => 'Chi tiết :name',
         ],
     ],
     'column' => [
@@ -60,15 +69,34 @@ return [
             'status' => 'Trạng thái',
             'category_id' => 'Id danh mục'
         ],
+        'order' => [
+            'id' => 'STT',
+            'customer_name' => 'Tên khách hàng',
+            'order_date' => 'Ngày đặt hàng',
+            'total' => 'Tổng tiền',
+            'status' => 'Trạng thái đơn hàng',
+            'phone' => 'Số điện thoại',
+            'subtotal' => 'Thành tiền',
+        ],
     ],
     'name_modules' => [
         'category' => 'Danh mục',
         'product' => 'Sản phẩm',
+        'order' => 'Đơn hàng',
     ],
     'status' => [
         'product' => [
             'stocking' => 'Còn hàng',
             'out_of_stock' => 'Hết hàng',
         ],
+        'order' => [
+            'pending' => 'Chờ duyệt',
+            'accepted' => 'Xác nhận',
+            'reject' => 'Từ chối',
+        ],
+    ],
+    'notification' => [
+        'update_success' => 'Cập nhật thành công !',
+        'errors' => 'Lỗi cập nhập !',
     ],
 ];

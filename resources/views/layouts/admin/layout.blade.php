@@ -3,8 +3,10 @@
 	<!--begin::Head-->
 	<head><base href="">
 		<meta charset="utf-8" />
+		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<title>Metronic Live preview | Keenthemes</title>
 		@include('layouts.admin.assets.css')
+		@routes
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
