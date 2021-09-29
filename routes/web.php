@@ -19,6 +19,14 @@ Route::group(['middleware' => 'locale'], function () {
     Route::group(['prefix' => '/', 'as' => 'client.', 'namespace' => 'Client'], function () {
         //Home - Trang chủ
         Route::get('/', 'ClientController@index')->name('index');
+        //Cart- Giỏ hàng
+        Route::get('/cart', 'CartController@cart')->name('cart');
+        //Add to Cart - Thêm giỏ hàng
+        Route::get('/add-to-cart/{id}', 'CartController@addToCart')->name('addToCart');
+        //Update cart - Chỉnh sửa số lượng giỏ hàng
+        Route::patch('/update-cart', 'CartController@updateCart')->name('updateCart');
+        //Delete Care - Xóa sản phẩm khỏi giỏ hàng
+        Route::delete('/delete-cart', 'CartController@deleteCart')->name('deleteCart');
     });
 
     // Auth::routes();

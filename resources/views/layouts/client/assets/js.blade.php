@@ -8,3 +8,4 @@
 <!-- For demo purposes – can be removed on production -->
 <script src="{{ asset('bower_components/client-pizza/switchstylesheet/switchstylesheet.js') }}"></script>
 <!-- For demo purposes – can be removed on production : End -->
+@yield('script_client')
