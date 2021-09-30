@@ -13,6 +13,7 @@ return [
         'items' => 'Sản phẩm',
         'logout' => 'Logout',
         'hi' => 'Xin chào',
+        'register' => 'Đăng ký',
     ],
     'cart' => [
         'product_name' => 'Tên sản phẩm',
@@ -31,12 +32,23 @@ return [
     'notification' => [
         'success_update' => 'Cập nhật thành công !',
         'error_login' => 'Tài khoản hoặc mật khẩu không chính xác !',
+        'register_success' => 'Đăng ký thành công !',
     ],
     'login' => [
         'login' => 'Đăng nhập',
         'lable' => [
             'email' => 'Email',
             'password' => 'Mật khẩu',
+        ],
+    ],
+    'register' => [
+        'register' => 'Đăng ký',
+        'label' => [
+            'email' => 'Email',
+            'fullname' => 'Họ tên',
+            'phone' => 'Số điện thoại',
+            'password' => 'Mật khẩu',
+            'password_confirm' => 'Xác nhận mật khẩu',
         ],
     ],
 ];

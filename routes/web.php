@@ -31,6 +31,9 @@ Route::group(['middleware' => 'locale'], function () {
         Route::get('/login', 'ClientController@getFormLogin')->name('getFormLogin');
         Route::post('/login/post', 'ClientController@login')->name('login');
         Route::get('/logout', 'ClientController@logout')->name('logout');
+        //User - Auth
+        Route::get('/register', 'ClientController@getFormRegister')->name('getFormRegister');
+        Route::post('/register/post', 'ClientController@register')->name('register');
     });
 
     // Auth::routes();

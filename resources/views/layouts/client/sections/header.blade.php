@@ -48,6 +48,7 @@
                             </li>
                             <li class="menu-item"><a href="{{ route('client.logout') }}">{{ __('client.header.logout') }}</a></li>
                         @endif
+                        <li class="menu-item"><a href="{{ route('client.getFormRegister') }}">{{ __('client.header.register') }}</a></li>
                     </ul>
                 </div>
             </nav>
@@ -64,7 +65,7 @@
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a href="cart.html" title="View your shopping cart">
+                                <a href="{{ route('client.cart') }}" title="View your shopping cart">
                                 @if (session('cart'))
                                     <span class="count">{{ count(session('cart')) }}</span> {{ __('client.header.items') }}</span>
                                 @endif
@@ -74,6 +75,7 @@
                     </li>
                 </ul>
             </div>
+
         </div>
     </div>
 </header>
