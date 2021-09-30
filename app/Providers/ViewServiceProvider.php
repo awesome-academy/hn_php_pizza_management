@@ -15,7 +15,7 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(HeaderComposer::class);
     }
 
     /**
@@ -25,6 +25,7 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('layouts.client.sections.header', HeaderComposer::class);
+        View::composer('layouts.client.sites.*', HeaderComposer::class);
+        View::composer('layouts.client.auth.*', HeaderComposer::class);
     }
 }

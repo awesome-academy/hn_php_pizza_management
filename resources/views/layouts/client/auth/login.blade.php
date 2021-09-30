@@ -18,6 +18,11 @@
                                             {{ Session::get('error_login') }}
                                         </div>
                                         @endif
+                                        @if (Session::get('error_cart'))
+                                        <div class="alret alert-danger" role="alert">
+                                            {{ Session::get('error_cart') }}
+                                        </div>
+                                        @endif
                                         <h2>{{ __('client.login.login') }}</h2>
                                         <form  class="login" method="POST" action="{{ route('client.login') }}">
                                             @csrf
@@ -35,6 +40,10 @@
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </p>
+                                            <span>
+                                                {{ __('client.cart.link_signup') }}, 
+                                                <a style="color: blue;" href="{{ route('client.getFormRegister') }}">{{ __('client.register.register') }}</a>
+                                            </span>
                                             <p class="form-row">
                                                 <input type="submit" class="woocommerce-Button button" name="login" value="{{ __('client.login.login') }}" />
                                             </p>

@@ -134,12 +134,12 @@
                                                     <div class="product-outer">
                                                         <div class="product-inner">
                                                             <div class="product-image-wrapper">
-                                                                <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                                                <a href="#" class="woocommerce-LoopProduct-link">
                                                                 <img src="{{ asset($meat->thumbnail) }}" class="img-responsive" alt="">
                                                                 </a>
                                                             </div>
                                                             <div class="product-content-wrapper">
-                                                                <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                                                <a href="#" class="woocommerce-LoopProduct-link">
                                                                     <h3>{{ $meat->name }}</h3>
                                                                     <div itemprop="description">
                                                                         <p style="max-height: none;">{{ $meat->description }}</p>
@@ -185,12 +185,12 @@
                                                     <div class="product-outer">
                                                         <div class="product-inner">
                                                             <div class="product-image-wrapper">
-                                                                <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                                                <a href="#" class="woocommerce-LoopProduct-link">
                                                                 <img src="{{ asset($mixed->thumbnail) }}" class="img-responsive" alt="">
                                                                 </a>
                                                             </div>
                                                             <div class="product-content-wrapper">
-                                                                <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                                                <a href="#" class="woocommerce-LoopProduct-link">
                                                                     <h3>{{ $mixed->name }}</h3>
                                                                     <div itemprop="description">
                                                                         <p style="max-height: none;">{{ $mixed->description }}</p>
@@ -213,7 +213,7 @@
                                                                     </div>
                                                                 </a>
                                                                 <div class="hover-area">
-                                                                    <a rel="nofollow" href="single-product-v1.html" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">{{ __('client.add_to_cart') }}</a>
+                                                                    <a rel="nofollow" href="#" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">{{ __('client.add_to_cart') }}</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -236,12 +236,12 @@
                                                     <div class="product-outer">
                                                         <div class="product-inner">
                                                             <div class="product-image-wrapper">
-                                                                <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                                                <a href="#" class="woocommerce-LoopProduct-link">
                                                                 <img src="{{ asset($vegetarian->thumbnail) }}" class="img-responsive" alt="">
                                                                 </a>
                                                             </div>
                                                             <div class="product-content-wrapper">
-                                                                <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                                                <a href="#" class="woocommerce-LoopProduct-link">
                                                                     <h3>{{ $vegetarian->name }}</h3>
                                                                     <div itemprop="description">
                                                                         <p style="max-height: none;">{{ $vegetarian->description }}</p>
@@ -264,7 +264,7 @@
                                                                     </div>
                                                                 </a>
                                                                 <div class="hover-area">
-                                                                    <a rel="nofollow" href="single-product-v1.html" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">{{ __('client.add_to_cart') }}</a>
+                                                                    <a rel="nofollow" href="#" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">{{ __('client.add_to_cart') }}</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -290,23 +290,23 @@
                             </div>
                             <ul class="products-info">
                                 <li>
-                                    <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                    <a href="#" class="woocommerce-LoopProduct-link">
                                         <h3>Vegge Lover</h3>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                    <a href="#" class="woocommerce-LoopProduct-link">
                                         <h3>Summer Pizza</h3>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                    <a href="#" class="woocommerce-LoopProduct-link">
                                         <h3>Chicken Hawaii</h3>
                                     </a>
                                 </li>
                             </ul>
                         </div>
-                        <a href="single-product-v1.html" class="button">Order Now</a>
+                        <a href="#" class="button">Order Now</a>
                     </div>
                 </div>
                 <div class="section-products">
@@ -318,12 +318,12 @@
                                     <div class="product-outer">
                                         <div class="product-inner">
                                             <div class="product-image-wrapper">
-                                                <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                                <a href="#" class="woocommerce-LoopProduct-link">
                                                 <img src="{{ asset($latestProduct->thumbnail) }}" class="img-responsive" alt="">
                                                 </a>
                                             </div>
                                             <div class="product-content-wrapper">
-                                                <a href="single-product-v1.html" class="woocommerce-LoopProduct-link">
+                                                <a href="#" class="woocommerce-LoopProduct-link">
                                                     <h3>{{ $latestProduct->name }}</h3>
                                                     <div itemprop="description">
                                                         <p style="max-height: none;">{{ $latestProduct->description }}</p>
