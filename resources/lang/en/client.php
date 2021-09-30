@@ -11,8 +11,7 @@ return [
         'go_to_cart' => 'Go to Cart',
         'cart' => 'Cart',
         'items' => 'Items',
-        'logout' => 'Logout',
-        'hi' => 'Hi',
+        'register' => 'Register',
     ],
     'cart' => [
         'product_name' => 'Product Name',
@@ -31,6 +30,7 @@ return [
     'notification' => [
         'success_update' => 'Successfully updated !',
         'error_login' => 'Incorrect account or password !',
+        'register_success' => 'Successfully registered !',
     ],
     'login' => [
         'login' => 'Login',
@@ -38,5 +38,15 @@ return [
             'email' => 'Email',
             'password' => 'Password',
         ],
+    ],
+    'register' => [
+        'register' => 'Register',
+        'label' => [
+            'email' => 'Email',
+            'fullname' => 'Full Name',
+            'phone' => 'Phone Number',
+            'password' => 'Password',
+            'password_confirm' => 'Password Confirmation',
+        ]
     ],
 ];
