@@ -40,8 +40,14 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="menu-item"><a href="#">{{ __('client.header.contact') }}</a></li>
-                        <li class="menu-item"><a href="#">{{ __('client.header.login') }}</a></li>
+                        @if (!Auth::check())
+                            <li class="menu-item"><a href="{{ route('client.getFormLogin') }}">{{ __('client.header.login') }}</a></li>
+                        @else
+                            <li class="menu-item">
+                                <a href="#">{{ __('client.header.hi') }}, {{ Auth::user()->fullname }}</a>
+                            </li>
+                            <li class="menu-item"><a href="{{ route('client.logout') }}">{{ __('client.header.logout') }}</a></li>
+                        @endif
                     </ul>
                 </div>
             </nav>

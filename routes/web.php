@@ -27,6 +27,10 @@ Route::group(['middleware' => 'locale'], function () {
         Route::patch('/update-cart', 'CartController@updateCart')->name('updateCart');
         //Delete Care - Xóa sản phẩm khỏi giỏ hàng
         Route::delete('/delete-cart', 'CartController@deleteCart')->name('deleteCart');
+        //Login user
+        Route::get('/login', 'ClientController@getFormLogin')->name('getFormLogin');
+        Route::post('/login/post', 'ClientController@login')->name('login');
+        Route::get('/logout', 'ClientController@logout')->name('logout');
     });
 
     // Auth::routes();

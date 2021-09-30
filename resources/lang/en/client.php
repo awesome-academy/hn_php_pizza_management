@@ -11,6 +11,8 @@ return [
         'go_to_cart' => 'Go to Cart',
         'cart' => 'Cart',
         'items' => 'Items',
+        'logout' => 'Logout',
+        'hi' => 'Hi',
     ],
     'cart' => [
         'product_name' => 'Product Name',
@@ -28,5 +30,13 @@ return [
     ],
     'notification' => [
         'success_update' => 'Successfully updated !',
+        'error_login' => 'Incorrect account or password !',
+    ],
+    'login' => [
+        'login' => 'Login',
+        'label' => [
+            'email' => 'Email',
+            'password' => 'Password',
+        ],
     ],
 ];
