@@ -11,6 +11,8 @@ return [
         'go_to_cart' => 'Đi tới giỏ hàng',
         'cart' => 'Giỏ hàng',
         'items' => 'Sản phẩm',
+        'logout' => 'Logout',
+        'hi' => 'Xin chào',
     ],
     'cart' => [
         'product_name' => 'Tên sản phẩm',
@@ -28,5 +30,13 @@ return [
     ],
     'notification' => [
         'success_update' => 'Cập nhật thành công !',
+        'error_login' => 'Tài khoản hoặc mật khẩu không chính xác !',
+    ],
+    'login' => [
+        'login' => 'Đăng nhập',
+        'lable' => [
+            'email' => 'Email',
+            'password' => 'Mật khẩu',
+        ],
     ],
 ];
