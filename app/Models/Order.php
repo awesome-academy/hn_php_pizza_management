@@ -16,6 +16,8 @@ class Order extends Model
         'status',
     ];
 
+    protected $appends = ['full_name'];
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -23,6 +25,16 @@ class Order extends Model
 
     public function orderDetail()
     {
-        return $this->hasOne(OrderDetail::class);
+        return $this->hasMany(OrderDetail::class);
+    }
+
+    public function getFullNameAttribute()
+    {
+        return $this->user->fullname;
+    }
+
+    public function formatDate()
+    {
+        return date('d-m-Y H:i:s', strtotime($this->order_date));
     }
 }

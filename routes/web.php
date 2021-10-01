@@ -81,6 +81,15 @@ Route::group(['middleware' => 'locale'], function () {
                 //Delete
                 Route::post('/delete/{id}', 'ProductController@delete')->name('delete');
             });
+            //Order
+            Route::group(['prefix' => '/order', 'as' => 'order.'], function () {
+                //Index
+                Route::get('/', 'OrderController@index')->name('index');
+                //Detail
+                Route::get('/detail/{id}', 'OrderController@detail')->name('detail');
+                //Update Status
+                Route::patch('/update/{id}', 'OrderController@update')->name('update');
+            });
         });
     });
 });
