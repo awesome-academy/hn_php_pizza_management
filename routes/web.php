@@ -34,6 +34,9 @@ Route::group(['middleware' => 'locale'], function () {
         //User - Auth
         Route::get('/register', 'ClientController@getFormRegister')->name('getFormRegister');
         Route::post('/register/post', 'ClientController@register')->name('register');
+        Route::get('/checkout-cart', 'CartController@checkoutCart')->name('checkoutCart');
+        Route::post('/place-order', 'CartController@placeOrder')->name('placeOrder');
+        Route::get('/thanks', 'CartController@thanks')->name('thanks');
     });
 
     // Auth::routes();

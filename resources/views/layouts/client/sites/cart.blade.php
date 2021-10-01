@@ -97,22 +97,24 @@
                                                             <strong>
                                                             <span class="woocommerce-Price-amount amount">
                                                             <span class="woocommerce-Price-currencySymbol"></span>
-                                                               @php
-                                                                  $subtotal = 0;
-                                                               @endphp
-                                                               @foreach (session('cart') as $id => $cart)
-                                                                  @php
-                                                                     $subtotal += $cart['quantity'] * $cart['price'];
-                                                                  @endphp
-                                                               @endforeach
-                                                               {{ $subtotal }}
+                                                               @if (session('cart'))
+                                                                    @php
+                                                                        $subtotal = 0;
+                                                                    @endphp
+                                                                    @foreach (session('cart') as $id => $cart)
+                                                                        @php
+                                                                            $subtotal += $cart['quantity'] * $cart['price'];
+                                                                        @endphp
+                                                                    @endforeach
+                                                                    {{ $subtotal }}
+                                                               @endif
                                                             </span>
                                                             </strong>
                                                         </td>
                                                     </tr>
                                                 </table>
                                                 <div class="wc-proceed-to-checkout">
-                                                    <a href="#" class="checkout-button button alt wc-forward">{{ __('client.cart.proceed_to_checkout') }}</a>
+                                                    <a href="{{ route('client.checkoutCart') }}" class="checkout-button button alt wc-forward">{{ __('client.cart.proceed_to_checkout') }}</a>
                                                 </div>
                                             </div>
                                         </div>

@@ -3,6 +3,7 @@
 return [
     'add_to_cart' => 'Thêm vào giỏ hàng',
     'latest_product' => 'Sản phẩm mới nhất',
+    'checkout' => 'Checkout',
     'header' => [
         'home' => 'Trang chủ',
         'contact' => 'Liên hệ',
@@ -28,11 +29,20 @@ return [
             'step_3' => 'Đặt hàng thành công',
         ],
         'proceed_to_checkout' => 'Đi tới giỏ hàng',
+        'link_signup' => 'Nếu bạn chưa có tài khoản. Vui lòng đăng ký tại đây',
+        'your_order' => 'Đơn hàng của bạn',
+        'cash_on_delivery' => 'Thanh toán khi nhận hàng',
+        'place_order' => 'Đặt hàng',
+        'order_success' => 'Đặt hàng thành công',
+        'thanks' => 'Qúy khách đã đặt hàng thành công. Xin cảm ơn !',
+        'payment_method' => 'Phương thức thanh toán',
+        'billing_address_1' => 'Địa chỉ',
     ],
     'notification' => [
         'success_update' => 'Cập nhật thành công !',
         'error_login' => 'Tài khoản hoặc mật khẩu không chính xác !',
         'register_success' => 'Đăng ký thành công !',
+        'error_cart' => 'Vui lòng đăng nhập !',
     ],
     'login' => [
         'login' => 'Đăng nhập',
@@ -49,6 +59,15 @@ return [
             'phone' => 'Số điện thoại',
             'password' => 'Mật khẩu',
             'password_confirm' => 'Xác nhận mật khẩu',
+        ],
+    ],
+    'checkout' => [
+        'label' => [
+            'fullname' => 'Họ và tên',
+            'email' => 'Email',
+            'phone' => 'Số điện thoại',
+            'address' => 'Địa chỉ giao hàng',
+            'order_notes' => 'Ghi chú',
         ],
     ],
 ];

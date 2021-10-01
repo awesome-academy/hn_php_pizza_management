@@ -19,4 +19,12 @@ return [
         'active' => '1',
         'deactive' => '0',
     ],
+    'payment_method' => [
+        'cash' => 'cash_on_delivery',
+    ],
+    'confirm_order' => [
+        'accept' => '1',
+        'reject' => '2',
+        'pending' => '0',
+    ],
 ];

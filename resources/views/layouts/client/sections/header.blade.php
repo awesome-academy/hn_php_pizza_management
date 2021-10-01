@@ -42,13 +42,13 @@
                         </li>
                         @if (!Auth::check())
                             <li class="menu-item"><a href="{{ route('client.getFormLogin') }}">{{ __('client.header.login') }}</a></li>
+                            <li class="menu-item"><a href="{{ route('client.getFormRegister') }}">{{ __('client.header.register') }}</a></li>
                         @else
                             <li class="menu-item">
                                 <a href="#">{{ __('client.header.hi') }}, {{ Auth::user()->fullname }}</a>
                             </li>
                             <li class="menu-item"><a href="{{ route('client.logout') }}">{{ __('client.header.logout') }}</a></li>
                         @endif
-                        <li class="menu-item"><a href="{{ route('client.getFormRegister') }}">{{ __('client.header.register') }}</a></li>
                     </ul>
                 </div>
             </nav>
